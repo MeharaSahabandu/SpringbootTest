@@ -12,38 +12,46 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="../css/login.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <!-- Page Heading -->
-<h1 style="text-align: center; font-family: 'Open Sans', sans-serif; color: #111; margin-bottom: 30px;">Bakery</h1>
+<h1 style="text-align: center; font-family: 'Leckerli One', cursive; font-size: 78px; color: #111; margin-bottom: 30px;">Bakery</h1>
 
-<!-- Login Container -->
-<div class="container">
-    <h2>Login</h2>
-    <form id="loginForm">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
+<!-- Flex Layout -->
+<div class="login-wrapper">
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+    <div class="container">
+        <h2>Welcome Back!</h2>
+        <form id="loginForm">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
 
-        <button type="submit">Login</button>
-    </form>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
-    <button class="register-btn" id="createAccountBtn" onclick="window.location.href='register.html'">Create Account</button>
-    <button class="logout-btn" id="logoutBtn">Logout</button>
+            <button type="submit">Login</button>
+        </form>
 
-    <div id="userInfo" class="user-info" style="display:none;">
-        <h3>User Info</h3>
-        <p><strong>Name:</strong> <span id="userName"></span></p>
-        <p><strong>Email:</strong> <span id="userEmail"></span></p>
-        <p><strong>Phone:</strong> <span id="userPhone"></span></p>
-        <p><strong>Address:</strong> <span id="userAddress"></span></p>
+        <button class="register-btn" id="createAccountBtn" onclick="window.location.href='register.html'">Create Account</button>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+
+        <div id="userInfo" class="user-info" style="display:none;">
+            <h3>User Info</h3>
+            <p><strong>Name:</strong> <span id="userName"></span></p>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+            <p><strong>Address:</strong> <span id="userAddress"></span></p>
+        </div>
     </div>
 </div>
 
-<!-- JavaScript for login logic -->
+<!-- JavaScript (unchanged) -->
 <script>
     document.getElementById("loginForm").addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -81,4 +89,5 @@
 </script>
 
 </body>
+
 </html>
