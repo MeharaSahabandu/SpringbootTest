@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Profile - Online Bakery</title>
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Dynamic Header -->
+<div id="header-container"></div>
+
+<div class="container">
+    <div class="profile-wrapper">
+        <div class="profile-title">PROFILE</div>
+        <div class="circle" id="userInitial"></div>
+        <div class="profile-section">
+            <div class="user-info" id="userInfo">
+                <p><strong>Name:</strong> <span id="userName"></span></p>
+                <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                <p><strong>Address:</strong> <span id="userAddress"></span></p>
+                <button onclick="openModal()">Edit Profile</button>
+                <button id="logoutBtn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Profile</h3>
+        <label for="editName">Name</label>
+        <input type="text" id="editName" />
+
+        <label for="editEmail">Email</label>
+        <input type="email" id="editEmail" />
+
+        <label for="editAddress">Address</label>
+        <input type="text" id="editAddress" />
+
+        <div class="modal-buttons">
+            <button onclick="saveChanges()">Save</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Script -->
+<script>
+    // Load header
+    fetch("../header/header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header-container").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) {
+        window.location.href = "login.html";
+    } else {
+        updateUI();
+    }
+
+    function updateUI() {
+        document.getElementById("userName").textContent = user.name;
+        document.getElementById("userEmail").textContent = user.email;
+        document.getElementById("userAddress").textContent = user.address;
+        document.getElementById("userInitial").textContent = user.name.charAt(0).toUpperCase();
+    }
+
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    }
+
+    function openModal() {
+        document.getElementById("editName").value = user.name;
+        document.getElementById("editEmail").value = user.email;
+        document.getElementById("editAddress").value = user.address;
+        document.getElementById("editModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("editModal").style.display = "none";
+    }
+
+    function saveChanges() {
+        user.name = document.getElementById("editName").value;
+        user.email = document.getElementById("editEmail").value;
+        user.address = document.getElementById("editAddress").value;
+
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        updateUI();
+        closeModal();
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("editModal");
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+</script>
+
+</body>
+</html>

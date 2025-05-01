@@ -1,0 +1,89 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    padding: 40px;
+    margin: 0;
+    color: #222;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+h2 {
+    text-align: center;
+    color: #111;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.register-btn {
+    background-color: #444;
+}
+
+.register-btn:hover {
+    background-color: #666;
+}
+
+.logout-btn {
+    background-color: #999;
+    display: none;
+}
+
+.logout-btn:hover {
+    background-color: #777;
+}
+
+.user-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fafafa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    color: #444;
+}
+
+.user-info h3 {
+    margin-top: 0;
+}
+
+.user-info p {
+    margin: 8px 0;
+}
