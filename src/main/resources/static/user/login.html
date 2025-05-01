@@ -4,15 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Login - Online Bakery</title>
+
+    <!-- Google Fonts: Open Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Link to the Open Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Link to external CSS -->
+
+    <!-- External CSS -->
     <link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 
+<!-- Page Heading -->
+<h1 style="text-align: center; font-family: 'Open Sans', sans-serif; color: #111; margin-bottom: 30px;">Bakery</h1>
+
+<!-- Login Container -->
 <div class="container">
     <h2>Login</h2>
     <form id="loginForm">
@@ -37,6 +43,7 @@
     </div>
 </div>
 
+<!-- JavaScript for login logic -->
 <script>
     document.getElementById("loginForm").addEventListener("submit", async function (event) {
         event.preventDefault();
